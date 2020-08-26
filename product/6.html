@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .a{
+            width: 100px;
+            height: 100px;
+            background: green;
+        }
+        .b{
+            width: 200px;
+            height: 200px;
+            background: blue;
+        }
+        .c{
+            width: 300px;
+            height: 300px;
+            background: gray;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <!-- <div class="c"@click.capture="clickc">
+            c
+            <div class="b"@click.="clickb">
+                b
+                <div class="a" @click.capture="clicka">a</div>
+            </div>
+        </div> -->
+        <!-- <form action="/api/user/add" v-on:submit.prevent="Submit">
+            <input type="submit" value="提交"/>
+        </form> -->
+        <input type="text" @keyup.13="handenter">
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            num: 0
+        },
+        methods: {
+           clicka(){
+               console.log('a');
+           },
+           clickb(){
+               console.log('b');
+           },
+           clickc(){
+               console.log('c');
+           },
+           Submit(){
+               console.log('Submit')
+           },
+           handenter(){
+               console.log('13')
+           }
+        }
+    })
+</script>
+
+</html>

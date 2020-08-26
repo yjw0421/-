@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{initNum}}</h1>
+        <buttoncounter :num="initNum" @abc="handleChange"></buttoncounter>
+    </div>
+</body>
+<script>
+
+
+
+    //定义一个全局组件
+    Vue.component('buttoncounter', {
+        //每个数据的独立拷贝
+        props:['num'],
+        data() {
+            return{
+                
+            }
+        },
+        template:`
+            <div>
+                <h1>{{num}}</h1>
+                <button @click="init()">增加</button>
+            </div>       
+        `,
+        methods:{
+            init(){
+                this.num += 1;
+                this.$emit('abc',this.num)
+            }
+        }
+    })
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            initNum: 100
+        },
+        methods:{
+            handleChange(num){
+                this.initNum = num;
+            }
+        }
+    })
+</script>
+
+</html>

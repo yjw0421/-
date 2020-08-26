@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div :style="{fontSize: size+ 'px'}">
+            <blog-post title="我是标题一" @enter="changeFont"></blog-post>
+            <input type="text" v-model="username">
+            <!-- <input type="text" v-bind:value="username" v-on:input='username=$event.target.value'> -->
+        </div>
+    </div>
+</body>
+<script>
+
+
+    Vue.component('blog-post', {
+        props: ['title'],
+        template: `
+       <div>
+          <span>{{title}}</span>
+          <button @click="changeText">增大字体</button>
+          
+       </div>
+       
+       `,
+        methods: {
+            changeText() {
+                this.$emit('enter', 1)
+            }
+        }
+    })
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            size: 30,
+            username: ""
+        },
+        methods:{
+            changeFont(num){
+                this.size += num;
+            }
+        }
+    })
+</script>
+
+</html>

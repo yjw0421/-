@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+       <component :is="getTab"></component>
+<ul>
+    <li v-for="item in list" @click="handleclick(item)">
+        {{item.text}}
+    </li>
+</ul>
+    </div>
+</body>
+<script>
+    Vue.component('custom-position',{
+        template:`
+             <div>职业信息</div>
+        
+        `
+    })
+    Vue.component('custom-search',{
+        template:`
+             <div>搜索</div>
+        
+        `
+    })
+    Vue.component('custom-my',{
+        template:`
+             <div>我的</div>
+        
+        `
+    })
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            currentTab:'position',
+            list:[
+            {id:'position',text: "职业"},
+            {id:'search',text: "搜索"},
+            {id:'position',text: "我的"}
+           ]
+        },
+        computed:{
+            getTab(){
+                return 'custom-' + this.currentTab
+            }
+        },
+        methods:{
+            handleclick(item){
+                this.currentTab = item.id;
+            }
+        }
+
+    })
+</script>
+</html>
