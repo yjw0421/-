@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #cdcdcd;
+}
+header{
+    width: 100%;
+    height: 64px;
+    background: #323232;
+}
+header .hea{
+    width: 750px;
+    height: 64px;
+    margin: 0 auto;
+}
+.hea h1{
+    display: inline-block;
+    color: #dddddd;
+    font-size: 24px;
+    line-height: 64px;
+}
+.hea input{
+    width: 456px;
+    height: 34px;
+    margin-left: 140px;
+    font-size: 24px;
+    border: 0;
+    border-radius: 8px;
+}
+main{
+    width: 100%;
+    height: 100%;
+    /* overflow: hidden; */
+    background: #cdcdcd;
+}
+main>div{
+    width: 750px;
+    margin: 0 auto;
+}
+main h2{
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+main span{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    vertical-align: middle;
+    margin-left: 620px;
+    text-align: center;
+}
+.underUl li{
+    width: 750px;
+    height: 40px;
+    /* background: #ffffff; */
+    border-radius: 4px;
+    list-style: none;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.underUl li input{
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+.underUl li button{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    background: #cccccc;
+    border-radius: 50%;
+    border: 0px;
+    font-weight: 700;
+}
+.underUl li p{
+    display: inline-block;
+    width: 600px;
+    height: 25px;
+    line-height: 16px;
+    margin-left: 25px;
+    border: 0;
+}
+.underway li{
+    background: #ffffff;
+    border-left: 3px solid #629a9c;
+}
+.finished li{
+    background: #faf8f8;
+    border-left: 3px solid #e6e6e6;
+}

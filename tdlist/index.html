@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <div class="hea">
+                <h1>ToDOList</h1>
+                <input type="text" class="txt" placeholder="添加Todo" ref="companyName">
+                <button @click="gaintxt">提交</button>
+            </div>
+        </header>
+        <main>
+            <div class="underway">
+                <h2>正在进行</h2><span>{{underwayArr.length}}</span>
+                <ul class="underUl">
+                    <!-- <todo-list v-for="n in underwayArr">
+                        <template #but>
+                            <input type="button">
+                        </template>
+                    </todo-list> -->
+                    <li v-for="n in underwayArr">
+                        <input type="radio" @click="toFinish(n)">
+                        <p contenteditable="true" @blur="edit(n)" ref="txtHtml">{{n}}</p>
+                        <!-- <input type="text">{{n}} -->
+                        <button @click="deleUnder(n)">---</button>
+                    </li>
+                </ul>
+                   
+            </div>
+            <div class="finished">
+                <h2>已经完成</h2><span>{{finishedArr.length}}</span>
+                <ul class="underUl">
+                    <!-- <todo-list v-for="n in finishedArr">
+                        <template #but>
+                            <input type="button" checked>
+                        </template>
+                    </todo-list> -->
+                    <li v-for="n in finishedArr">
+                        <input type="radio" checked>
+                        <p contenteditable="true" @blur="editFin(n)" ref="txtHtmlFin">{{n}}</p>
+                        <button @click="deleFinished(n)">---</button>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    
+
+
+    <script>
+        // Vue.component('todo-list',{
+        //     template:`
+        //     <li>
+        //         <slot name="but"></slot>
+        //         <p>我是测试文字</p>
+        //         <button>---</button>
+        //     </li>
+        //     `
+        // })
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                underwayArr : [],
+                finishedArr : [],
+            },
+            computed:{
+                
+            },
+            methods: {
+                gaintxt(){
+                    let val = this.$refs.companyName.value;
+                    this.underwayArr.push(val);
+                },
+                deleUnder(n){
+                    this.underwayArr.find((item,index)=>{
+                        if(item === n){
+                            this.underwayArr.splice(index,1)
+                            return true;
+                        }
+                        console.log(underwayArr)
+                    })
+                },
+                deleFinished(n){
+                    this.finishedArr.find((item,index)=>{
+                        if(item === n){
+                            this.finishedArr.splice(index,1)
+                            return true;
+                        }
+                    })
+                },
+                // txt(){
+                //     this.txt = 
+                // }
+                edit(n){
+                    let txtInner = this.$refs.txtHtml;
+                    this.underwayArr.find((item,index) =>{
+                        if(n === item){
+                            indexNum = index
+                            // this.underwayArr[index] = txtInner[index].innerHTML;
+                            this.underwayArr.splice(index,1,txtInner[index].innerHTML)
+                            // console.log(txtInner[index].innerHTML,this.underwayArr)
+                        }
+                    })
+                    // this.underwayArr[indexNum] = txtInner[indexNum].innerHTML;
+                },
+                editFin(n){
+                    let txtInner = this.$refs.txtHtmlFin;
+                    
+                    this.finishedArr.find((item,index) =>{
+                        if(n === item){
+                            this.finishedArr[index] = txtInner[index].innerHTML;
+                            // console.log(txtInner[index].innerHTML,this.underwayArr)
+                        }
+                    })
+                },
+                toFinish(n){
+                    let Index;
+                    this.underwayArr.find((item,index)=>{
+                        if(item === n){
+                            Index = index;
+                            return true;
+                        }
+                    })
+                    this.finishedArr.push(n);
+                    this.underwayArr.splice(Index,1);
+                    // console.log(n)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
