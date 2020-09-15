@@ -1,0 +1,51 @@
+{
+  "id": "2051588",
+  "name": "aihuishou",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1339518",
+      "name": "换新机",
+      "font_class": "huanxinji",
+      "unicode": "e69c",
+      "unicode_decimal": 59036
+    },
+    {
+      "icon_id": "5651515",
+      "name": "首页",
+      "font_class": "shouye",
+      "unicode": "e68a",
+      "unicode_decimal": 59018
+    },
+    {
+      "icon_id": "6563375",
+      "name": "未标题-1_服务站",
+      "font_class": "weibiaoti-_fuwuzhan",
+      "unicode": "e6af",
+      "unicode_decimal": 59055
+    },
+    {
+      "icon_id": "9512628",
+      "name": "搜索",
+      "font_class": "search-fill",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    },
+    {
+      "icon_id": "10622228",
+      "name": "购物车",
+      "font_class": "dilanxianxingiconyihuifu_huabanfuben",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "14237963",
+      "name": "我 的",
+      "font_class": "wode1",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}
